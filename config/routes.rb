@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  get 'sessions/new'
+
   # You can have the root of your site routed with "root"
   root 'static_pages#home'
 
@@ -10,6 +12,10 @@ Rails.application.routes.draw do
 
   # From Users Controller
   get '/signup', to: 'users#new'
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
   resources :users
 
