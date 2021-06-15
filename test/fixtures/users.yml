@@ -6,9 +6,9 @@ shyam:
   admin: true
 
 prashant:
-  name: Prashant
-  email: ppandav0@gmail.com
-  password_digest: <%= User.digest('123456') %>
+  name: Rebeca Rolfson
+  email: example-50@railstutorial.org
+  password_digest: <%= User.digest('password') %>
 
 one:
   name: MyString
