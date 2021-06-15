@@ -16,6 +16,11 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'bcrypt', '3.1.13'
+
+gem 'faker'
+# For Pagination
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 # gem 'puma', '3.12.2'
 # gem 'webpacker','4.0.7'
 # gem 'turbolinks','5.2.0'

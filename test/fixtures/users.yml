@@ -3,6 +3,12 @@ shyam:
   name: Shyam Pandav
   email: pandavshyam@gmail.com
   password_digest: <%= User.digest('123456') %>
+  admin: true
+
+prashant:
+  name: Prashant
+  email: ppandav0@gmail.com
+  password_digest: <%= User.digest('123456') %>
 
 one:
   name: MyString
