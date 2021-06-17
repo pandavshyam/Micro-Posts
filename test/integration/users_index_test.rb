@@ -10,7 +10,8 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
   end
 
   test "index including pagination" do
-    log_in_as(@admin)
+    # log_in_as(@admin)
+    send(:log_in_as, @admin)
     get users_path
     assert_template 'users/index'
     # assert_select 'div.pagination'

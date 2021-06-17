@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
     attr_accessor :remember_token
     before_save { email.downcase! }
+    before_create :create_activation_digest
+    attr_accessor :remember_token, :activation_token
     validates :name, presence: true, length: { maximum: 50 }
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
     validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
@@ -34,5 +36,13 @@ class User < ActiveRecord::Base
     # Forgets a user.
     def forget
         update_attribute(:remember_digest, nil)
+    end
+
+    private
+
+    def create_activation_digest
+        # Create the token and digest.
+        self.activation_token = User.new_token
+        self.activation_digest = User.digest(activation_token)
     end
 end
